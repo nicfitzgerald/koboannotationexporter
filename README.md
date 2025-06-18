@@ -1,7 +1,7 @@
 # Kobo Annotations Exporter
 A tool to export annotations from your Kobo reader in a way that makes them easy to read and nice to look at.
 
-![Database Information](Database Information.png)
+![Screenshot of Database Information Page](./Database%20Information.png)
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
