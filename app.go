@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
 const (
@@ -51,8 +52,23 @@ type Annotations struct {
 	Annotations []Author `json:"annotations"`
 }
 
-func (a *App) GetInfoFromDB() Annotations {
-	db, err := sql.Open("sqlite3", DB_OLD_LOC)
+func (a *App) GetDBPath() string {
+	filters := []runtime.FileFilter{
+		{DisplayName: "SQLite Database (.sqlite)", Pattern: "*.sqlite"},
+	}
+	filePath, err := runtime.OpenFileDialog(a.ctx, runtime.OpenDialogOptions{
+		Filters:         filters,
+		ShowHiddenFiles: true,
+	})
+	if err != nil {
+		return ""
+	}
+
+	return filePath
+}
+
+func (a *App) GetInfoFromDB(path string) Annotations {
+	db, err := sql.Open("sqlite3", path)
 	if err != nil {
 		log.Fatal(err)
 	}
