@@ -3,6 +3,8 @@ A tool to export annotations from your Kobo reader in a way that makes them easy
 
 ![Screenshot of Database Information Page](./Database%20Information.png)
 
+> *WARNING*: This is still in _very_ early active development - breaking changes can and likely will happen. No data from the database will be lost.
+
 ## Table of Contents
 - [Technologies Used](#technologies-used)
 - [How to Install](#how-to-install)
